@@ -1,0 +1,64 @@
+.display {
+    height: 100px;
+}
+
+.crystal-image {
+    width: 120px;
+    height: 120px;
+    padding: 20px;
+}
+
+footer {
+    margin: 0;
+    padding: 20px;
+    display: block;
+}
+.credit {
+    font-size: 12px;
+}
+
+.jumbotron, footer {
+    background-color: #747ef7;
+    text-align: center;
+    color: #fff;
+}
+
+.display-4 {
+    font-weight: bolder;
+}
+
+a {
+    color: orange;
+}
+
+@media screen and (min-width: 980px) {
+    .container {
+        width: 720px;
+    }
+}
+
+#score, #computer-guess {
+    text-align: center;
+    font-weight: bold;
+    font-size: -webkit-xxx-large;
+}
+
+#score {
+    color: #52a9fc;
+}
+
+#wins {
+    color: #4cb057;
+}
+
+#losses {
+    color: #dc002f;
+}
+
+.larger-text {
+    font-size: larger;
+}
+
+.xx-large-text {
+    font-size: xx-large;
+}
