@@ -1,11 +1,27 @@
+body {
+    font-family: 'Oswald', sans-serif;
+}
+
 .display {
     height: 100px;
 }
 
-.crystal-image {
+.character {
     width: 120px;
     height: 120px;
     padding: 20px;
+}
+
+.container {
+    overflow: scroll;
+}
+
+.player {
+    height: 150px;
+}
+
+.paragraph {
+    padding: 0;
 }
 
 footer {
@@ -18,7 +34,7 @@ footer {
 }
 
 .jumbotron, footer {
-    background-color: #747ef7;
+    background-color: #222222;
     text-align: center;
     color: #fff;
 }
