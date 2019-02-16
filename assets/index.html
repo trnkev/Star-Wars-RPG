@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Star Wars RPG</title>
+    <link href="assets/css/reset.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
+        integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class='jumbotron'>
+        <h1 class='display-4'>Crystals Collector!</h1>
+    </header>
+    <div class='container vh-100'>
+        <div class='row larger-text'>
+            <p>You will be given a random number at the start of the game.</p>
+            <p>
+                There are four crystals below. By clicking on a crystal you will add a
+                specific amount of points to your total score.
+            </p>
+            <p>
+                You win the game by matching your total score to random number,
+                you lose the game if your total score goes above the random number.
+            </p>
+            <p>
+                The value of each crystal is hidden from you until you click on it.
+            </p>
+            <p>
+                Each time when the game starts, the game will change the value of each crystal.
+            </p>
+        </div>
+
+        <div class='row display'>
+            <div id='computer-guess' class='col-3'>
+                <div><span id='number-to-guess'></span></div>
+            </div>
+            <div class='col-3 xx-large-text'>
+                <div>Wins: <span id="wins">0</span></div>
+                <div>Losses: <span id="losses">0</span></div>
+            </div>
+        </div>
+
+        <div class='row'>
+            <img id='gems' class='crystal-image' src='assets/images/gems.svg' />
+            <img id='diamond' class='crystal-image' src='assets/images/diamond.svg' />
+            <img id='crystal' class='crystal-image' src='assets/images/crystal.svg' />
+            <img id='crystals' class='crystal-image' src='assets/images/crystals.svg' />
+        </div>
+
+
+        <div class='row xx-large-text'>
+            <p>Your total score is:</p>
+        </div>
+
+        <div class='row display'>
+            <div class='col-3'><span id='score'></span></div>
+        </div>
+    </div>
+
+    <footer class='bottom'>
+        <div class='credit'>Icons made by <a href="https://www.flaticon.com/authors/eucalyp"
+                title="Eucalyp">Eucalyp</a>, <a href="https://www.freepik.com/" title="Freepik">Freepik</a>, and <a
+                href="https://www.flaticon.com/authors/graphberry" title="GraphBerry">GraphBerry</a> from <a
+                href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a
+                href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC
+                3.0
+                BY</a>
+        </div>
+        <div class='credit'>© 2019 Kevin Tran</div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/javascript/game.js"></script>
+</body>
+
+</html>
