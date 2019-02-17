@@ -14,10 +14,11 @@ var imageOptions = ['darth-vader.jpeg', 'luke-skywalker.jpeg', 'rey.jpeg', 'yoda
 
 // The player is Darth Vader
 $('.character').on('click', function() {
+    var clicked = $(this).attr('imageFilename');
     $('.character').remove();
     var character = $('<img>');
     character.addClass('character');
-    character.attr('src', 'assets/images/darth-vader.jpeg');
+    character.attr('src', 'assets/images/' + clicked);
     $('.player').append(character);
 
     for (let id of imageOptions) {
