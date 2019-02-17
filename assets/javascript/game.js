@@ -10,13 +10,16 @@ var characterList = {
 };
 var imageOptions = ['darth-vader.jpeg', 'luke-skywalker.jpeg', 'rey.jpeg', 'yoda.jpeg'];
 
-// generate an HP from 100 to 200
 function generate() {
+    myCharacter.attackPower = Math.floor(Math.random()*10 + 1);
     var hp = characterList.healthPoints;
+    var counter = characterList.counterAttackPower;
     var count = 1;
     for (var i = 0; i < hp.length; i++) {
         var unique = '#unique' + count;
-        hp[i] = Math.floor(Math.random()*100+100);
+        // generate an HP from 100 to 200
+        hp[i] = Math.floor(Math.random() * 100 + 100);
+        counter[i] = Math.floor(Math.random()*10 + 1);
         $(unique).append('<p class=\'hp\'>' + hp[i] + '</p>');
         count++;
     }
