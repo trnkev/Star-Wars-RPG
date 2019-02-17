@@ -10,10 +10,15 @@ var enemy = {
 };
 var imageOptions = ['darth-vader.jpeg', 'luke-skywalker.jpeg', 'rey.jpeg', 'yoda.jpeg'];
 
+// generate an HP from 100 to 200
+var randomHP = function() {
+    return Math.floor(Math.random()*100 + 100);
+}
+
 $('.character').on('click', function() {
     // move the image down to where player is supposed to be
     var clicked = $(this).attr('imageFilename');
-    $('.character').remove();
+    $('.queue').remove();
     var player = $('<img>');
     player.addClass('character');
     player.attr('src', 'assets/images/' + clicked);

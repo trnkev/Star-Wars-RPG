@@ -19,7 +19,7 @@ body {
     overflow: scroll;
 }
 
-.player, .defender {
+.player, .defender, .queue {
     height: 150px;
 }
 
