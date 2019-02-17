@@ -5,11 +5,9 @@ var myCharacter = {
 };
 
 var enemy = {
-    healthPoints: [0,0,0],
-    counterAttackPower: [0,0,0]
+    healthPoints: [0,0,0,0],
+    counterAttackPower: [0,0,0,0]
 };
-
-var targetNumber = 0;
 var imageOptions = ['darth-vader.jpeg', 'luke-skywalker.jpeg', 'rey.jpeg', 'yoda.jpeg'];
 
 $('.character').on('click', function() {
@@ -26,13 +24,14 @@ $('.character').on('click', function() {
 
     // create defenders
     var count = 1;
-    for (let id of imageOptions) {
-        if (id !== clicked) {
+    for (var i = 0; i < imageOptions.length; i++) {
+        if (imageOptions[i] !== clicked) {
             var unique = '#defender' + count;
             var defender = $('<img>');
             defender.addClass('character');
-            defender.attr('src', 'assets/images/' + id);
+            defender.attr('src', 'assets/images/' + imageOptions[i]);
             $(unique).addClass('card').append(defender);
+            $(unique).append('<p class=\'hp\'>' + enemy.healthPoints[i] + '</p>');
             count++;
         }
     }
