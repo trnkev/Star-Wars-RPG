@@ -5,8 +5,8 @@ var myCharacter = {
 };
 
 var enemy = {
-    healthPoints: 0,
-    counterAttackPower: 0
+    healthPoints: [0,0,0],
+    counterAttackPower: [0,0,0]
 };
 
 var targetNumber = 0;
@@ -16,18 +16,24 @@ $('.character').on('click', function() {
     // move the image down to where player is supposed to be
     var clicked = $(this).attr('imageFilename');
     $('.character').remove();
-    var character = $('<img>');
-    character.addClass('character card');
-    character.attr('src', 'assets/images/' + clicked);
-    $('.player').append(character);
+    var player = $('<img>');
+    player.addClass('character');
+    player.attr('src', 'assets/images/' + clicked);
+    $('.your-character').append('<div class=\'player card\'></div>');
+    $('.player').append(player);
+    $('.player').append('<p class=\'hp\'>' + myCharacter.healthPoints + '</p>');
+
 
     // create defenders
+    var count = 1;
     for (let id of imageOptions) {
         if (id !== clicked) {
+            var unique = '#defender' + count;
             var defender = $('<img>');
-            defender.addClass('character card');
+            defender.addClass('character');
             defender.attr('src', 'assets/images/' + id);
-            $('.defender').append(defender);
+            $(unique).addClass('card').append(defender);
+            count++;
         }
     }
 
