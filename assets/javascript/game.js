@@ -60,6 +60,7 @@ $('.character').on('click', function() {
             $(unique).addClass('card').append(defender);
             $(unique).append('<p class=\'hp\'>' + characterList.healthPoints[i] + '</p>');
             $(unique).attr('file-name',imageOptions[i]);
+            $(unique).attr('index',i);
 
             count++;
         } else if (imageOptions[i] === clicked) {
@@ -71,13 +72,14 @@ $('.character').on('click', function() {
 $('.defender').on('click', function() {
     var clicked = $(this).attr('id');
     var name = $(this).attr('file-name');
+    var index = $(this).attr('index');
     var unique = '#' + clicked;
     $(unique).remove();    
     var defender = $('<img>');
     defender.addClass('character');
     defender.attr('src', 'assets/images/' + name);
-    //$('.defender-character').addClass('card').append(defender);
-    // $(unique).append('<p class=\'hp\'>' + characterList.healthPoints[i] + '</p>');
+    $('#fighter').addClass('card').append(defender);
+    $('#fighter').append('<p class=\'hp\'>' + characterList.healthPoints[index] + '</p>');
 });
 
 // $('#attack').on('click', function() {
