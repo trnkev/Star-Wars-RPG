@@ -79,9 +79,16 @@ $('.defender').on('click', function() {
     defender.addClass('character');
     defender.attr('src', 'assets/images/' + name);
     $('#fighter').addClass('card').append(defender);
-    $('#fighter').append('<p class=\'hp\'>' + characterList.healthPoints[index] + '</p>');
+    $('#fighter').append('<p id=\'attacked\' class=\'hp\'>' + characterList.healthPoints[index] + '</p>');
+    $('#attacked').attr('index', index);
 });
 
-// $('#attack').on('click', function() {
-//     var clicked = $(this).$("<p>").html(5);
-// });
+var temp = 0;
+
+$('#attack').on('click', function() {
+    var index = parseInt($('#attacked').attr('index'));
+    temp = characterList.healthPoints[index] - myCharacter.attackPower;
+
+    $('#attacked').html(temp);
+    
+});
