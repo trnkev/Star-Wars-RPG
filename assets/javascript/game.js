@@ -66,6 +66,6 @@ $('.character').on('click', function() {
     }
 });
 
-$('#attack').on('click', function() {
-
-});
+// $('#attack').on('click', function() {
+//     var clicked = $(this).$("<p>").html(5);
+// });
