@@ -59,6 +59,8 @@ $('.character').on('click', function() {
             defender.attr('src', 'assets/images/' + imageOptions[i]);
             $(unique).addClass('card').append(defender);
             $(unique).append('<p class=\'hp\'>' + characterList.healthPoints[i] + '</p>');
+            $(unique).attr('file-name',imageOptions[i]);
+
             count++;
         } else if (imageOptions[i] === clicked) {
             myCharacter.healthPoints = characterList.healthPoints[i];
@@ -68,10 +70,15 @@ $('.character').on('click', function() {
 
 $('.defender').on('click', function() {
     var clicked = $(this).attr('id');
+    var name = $(this).attr('file-name');
     var unique = '#' + clicked;
     $(unique).remove();    
+    var defender = $('<img>');
+    defender.addClass('character');
+    defender.attr('src', 'assets/images/' + name);
+    //$('.defender-character').addClass('card').append(defender);
+    // $(unique).append('<p class=\'hp\'>' + characterList.healthPoints[i] + '</p>');
 });
-
 
 // $('#attack').on('click', function() {
 //     var clicked = $(this).$("<p>").html(5);
