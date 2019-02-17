@@ -17,7 +17,7 @@ $('.character').on('click', function() {
     var clicked = $(this).attr('imageFilename');
     $('.character').remove();
     var character = $('<img>');
-    character.addClass('character');
+    character.addClass('character card');
     character.attr('src', 'assets/images/' + clicked);
     $('.player').append(character);
 
@@ -25,7 +25,7 @@ $('.character').on('click', function() {
     for (let id of imageOptions) {
         if (id !== clicked) {
             var defender = $('<img>');
-            defender.addClass('character');
+            defender.addClass('character card');
             defender.attr('src', 'assets/images/' + id);
             $('.defender').append(defender);
         }
