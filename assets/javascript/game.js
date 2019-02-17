@@ -4,20 +4,39 @@ var myCharacter = {
     counterAttackPower : 0
 };
 
-var enemy = {
+var characterList = {
     healthPoints: [0,0,0,0],
     counterAttackPower: [0,0,0,0]
 };
 var imageOptions = ['darth-vader.jpeg', 'luke-skywalker.jpeg', 'rey.jpeg', 'yoda.jpeg'];
 
 // generate an HP from 100 to 200
-var randomHP = function() {
-    return Math.floor(Math.random()*100 + 100);
+function generate() {
+    var hp = characterList.healthPoints;
+    var count = 1;
+    for (var i = 0; i < hp.length; i++) {
+        var unique = '#unique' + count;
+        hp[i] = Math.floor(Math.random()*100+100);
+        $(unique).append('<p class=\'hp\'>' + hp[i] + '</p>');
+        count++;
+    }
 }
+
+function match(item) {
+    for (var i = 0; i < imageOptions.length; i++) {
+        if (item === imageOptions[i]) {
+            myCharacter.healthPoints = characterList.healthPoints[i];
+            myCharacter.counterAttackPower = characterList.counterAttackPower[i];
+        }
+    }
+}
+
+generate();
 
 $('.character').on('click', function() {
     // move the image down to where player is supposed to be
     var clicked = $(this).attr('imageFilename');
+    match(clicked);
     $('.queue').remove();
     var player = $('<img>');
     player.addClass('character');
@@ -36,8 +55,10 @@ $('.character').on('click', function() {
             defender.addClass('character');
             defender.attr('src', 'assets/images/' + imageOptions[i]);
             $(unique).addClass('card').append(defender);
-            $(unique).append('<p class=\'hp\'>' + enemy.healthPoints[i] + '</p>');
+            $(unique).append('<p class=\'hp\'>' + characterList.healthPoints[i] + '</p>');
             count++;
+        } else if (imageOptions[i] === clicked) {
+            myCharacter.healthPoints = characterList.healthPoints[i];
         }
     }
 
