@@ -12,8 +12,8 @@ var enemy = {
 var targetNumber = 0;
 var imageOptions = ['darth-vader.jpeg', 'luke-skywalker.jpeg', 'rey.jpeg', 'yoda.jpeg'];
 
-// The player is Darth Vader
 $('.character').on('click', function() {
+    // move the image down to where player is supposed to be
     var clicked = $(this).attr('imageFilename');
     $('.character').remove();
     var character = $('<img>');
@@ -21,12 +21,15 @@ $('.character').on('click', function() {
     character.attr('src', 'assets/images/' + clicked);
     $('.player').append(character);
 
+    // create defenders
     for (let id of imageOptions) {
-        if (id !== 'darth-vader.jpeg') {
+        if (id !== clicked) {
             var defender = $('<img>');
             defender.addClass('character');
             defender.attr('src', 'assets/images/' + id);
             $('.defender').append(defender);
         }
     }
+
+
 });
