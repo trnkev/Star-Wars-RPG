@@ -2,46 +2,30 @@ var myCharacter = {
     healthPoints : 0,
     attackPower : 0,
     counterAttackPower : 0
-}
+};
+
+var enemy = {
+    healthPoints: 0,
+    counterAttackPower: 0
+};
+
 var targetNumber = 0;
-var imageOptions = ['#darth-vader', '#luke-skywalker', '#rey', '#yoda'];
+var imageOptions = ['darth-vader.jpeg', 'luke-skywalker.jpeg', 'rey.jpeg', 'yoda.jpeg'];
 
-function generateGems() {
+// The player is Darth Vader
+$('.character').on('click', function() {
+    $('.character').remove();
+    var character = $('<img>');
+    character.addClass('character');
+    character.attr('src', 'assets/images/darth-vader.jpeg');
+    $('.player').append(character);
+
     for (let id of imageOptions) {
-        var random = Math.floor(Math.random() * 12 + 1);
-        var chracterImage = $(id);
-        chracterImage.attr('data-value', random);
+        if (id !== 'darth-vader.jpeg') {
+            var defender = $('<img>');
+            defender.addClass('character');
+            defender.attr('src', 'assets/images/' + id);
+            $('.defender').append(defender);
+        }
     }
-}
-
-function reset() {
-    var random = Math.floor(Math.random() * 101 + 19);
-    targetNumber = random;
-    counter = 0;
-    $('#score').html(0);
-    generateGems();
-}
-
-reset();
-
-$('.character').on('click', function () {
-    var crystalValue = $(this).attr('data-value');
-    crystalValue = parseInt(crystalValue);
-    counter += crystalValue;
-    $('#score').html(counter);
-
-    if (counter === targetNumber) {
-        alert('You win!');
-        ++wins;
-        $('#wins').html(wins);
-        reset();
-    } else if (counter > targetNumber) {
-        alert('Sorry, you lost!');
-        ++losses;
-        $('#losses').html(losses);
-        reset();
-    }
-    $('#number-to-guess').text(targetNumber);
-
 });
-
