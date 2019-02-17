@@ -64,6 +64,8 @@ $('.character').on('click', function() {
             myCharacter.healthPoints = characterList.healthPoints[i];
         }
     }
+});
 
+$('#attack').on('click', function() {
 
 });
