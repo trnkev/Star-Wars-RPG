@@ -49,7 +49,7 @@ $('.character').on('click', function() {
     $('.player').append('<p class=\'hp\'>' + myCharacter.healthPoints + '</p>');
 
 
-    // create defenders
+    // create enemies to attack
     var count = 1;
     for (var i = 0; i < imageOptions.length; i++) {
         if (imageOptions[i] !== clicked) {
@@ -65,6 +65,13 @@ $('.character').on('click', function() {
         }
     }
 });
+
+$('.defender').on('click', function() {
+    var clicked = $(this).attr('id');
+    var unique = '#' + clicked;
+    $(unique).remove();    
+});
+
 
 // $('#attack').on('click', function() {
 //     var clicked = $(this).$("<p>").html(5);
